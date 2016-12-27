@@ -1,0 +1,3 @@
+l est parfaitement naturel et commun en programmation de vouloir lire une “ligne”
+terminée par un retour à la ligne depuis un file descriptor. Par exemple chaque commande
+que vous tapez dans votre shell ou bien chaque ligne lue depuis un fichier plat.
