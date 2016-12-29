@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/23 15:45:05 by hel-hadi          #+#    #+#             */
-/*   Updated: 2016/12/28 17:58:16 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2016/12/29 15:53:40 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ typedef struct	s_pos
 }				t_pos;
 
 char			*check_retour(char *map);
+char			*check_ret_cmp(char *str, char *mem);
 int				get_next_line(const int fd, char **line);
 #endif
