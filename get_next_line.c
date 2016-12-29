@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/23 15:38:37 by hel-hadi          #+#    #+#             */
-/*   Updated: 2016/12/28 17:32:31 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2016/12/29 10:17:40 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ int		get_next_line(int fd, char **line)
 {
 	int				ret;
 	char			*map;
-	char			*dst1;
 	char			buf[BUFF_SIZE + 1];
 
 	map = "";
@@ -54,12 +53,11 @@ int		get_next_line(int fd, char **line)
 	{
 		buf[ret] = '\0';
 		map = ft_strjoin(map, buf);
-		dst1 = check_retour(map);
-		if (dst1 != NULL)
-		{
-			*line = dst1;
+		*line = check_retour(map);
+		if (*line != NULL)
 			return (1);
-		}
+		else
+			*line = "";
 	}
 	return (0);
 }
