@@ -1,0 +1,27 @@
+GNL BASIC TESTS:
+
+---------------------
+TEST #1: 1 line 8 chars with Line Feed (gnl1_1.c):
+OK
+
+---------------------
+TEST #2: 2 lines 8 chars with Line Feed (gnl1_2.c):
+-> must have returned '1' twice instead of 1 time(s)
+
+---------------------
+TEST #3: 4 lines 8 chars with Line Feed (gnl1_3.c):
+-> must have returned '1' four times instead of 2 time(s)
+-> must have read "1234567", "abcdefg", "4567890" and "defghij"
+
+---------------------
+TEST #4: STDIN: 1 line 8 chars with Line Feed (gnl2_1.c):
+OK
+
+---------------------
+TEST #5: STDIN: 2 lines 8 chars with Line Feed (gnl2_2.c):
+-> must have returned '1' twice instead of 1 time(s)
+
+---------------------
+TEST #6: STDIN: 4 lines 8 chars with Line Feed (gnl2_3.c):
+-> must have returned '1' four times instead of 2 time(s)
+-> must have read "1234567", "abcdefg", "4567890" and "defghij"
