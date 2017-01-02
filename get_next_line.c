@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/23 15:38:37 by hel-hadi          #+#    #+#             */
-/*   Updated: 2016/12/31 02:46:09 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/01/02 18:43:19 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,14 @@ char	*check_ret_cmp(char *str)
 	ft_memset(&pos, 0, sizeof(t_pos));
 	while (str[i])
 	{
-		if (str[i] == '\n' || str[i + 1] == '\0')
+		if (str[i] == '\n')
 		{
 			dst = ft_strsub((const char*)str, pos.start, i - pos.start);
+			return (dst);
+		}
+		if (str[i + 1] == '\0' && str[i] != '\n')
+		{
+			dst = ft_strsub((const char*)str, pos.start, i - pos.start +1);
 			return (dst);
 		}
 		i++;
@@ -55,21 +60,22 @@ int		get_next_line(int fd, char **line)
 
 	map = "";
 	ret = 0;
+	if (fd < 0 || line == NULL || BUFF_SIZE <= 0)
+		return (-1);
 	while ((ret = read(fd, buf, BUFF_SIZE)))
 	{
-		if (ret == -1 || fd == -1)
-			return (0);
+		if (ret == -1)
+			return (-1);
 		buf[ret] = '\0';
 		mem = ft_strjoin(mem, buf);
 	}
 	if (mem == NULL)
 		return (0);
-	map = check_ret_cmp(mem);
+	map = ft_strdup(check_ret_cmp(mem));
 	mem = cut_text(mem);
-	
-	if (map != NULL && mem != NULL)
+	if (map != NULL)
 	{
-		*line = map;
+		*line = ft_strdup(map);
 		return (1);
 	}
 	return (0);
