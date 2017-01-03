@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/23 15:38:37 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/01/02 18:43:19 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/01/02 19:27:51 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int		get_next_line(int fd, char **line)
 		buf[ret] = '\0';
 		mem = ft_strjoin(mem, buf);
 	}
-	if (mem == NULL)
+	if (mem == NULL || mem[0] == '\0')
 		return (0);
 	map = ft_strdup(check_ret_cmp(mem));
 	mem = cut_text(mem);
