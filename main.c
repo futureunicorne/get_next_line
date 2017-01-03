@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/27 09:20:27 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/01/02 19:30:23 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/01/03 17:46:08 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,24 @@
 
 int	main(int argc, char **argv)
 {
-	int		fd;
+	int		fd_1;
 	char	*line1;
 
 	line1 = "";
-	fd = open(argv[1], O_RDONLY);
+	fd_1 = open(argv[1],O_RDONLY);
 	if (argc == 2)
-	{
-		while (get_next_line(fd, &line1))
+	{	/*
+		while (get_next_line(fd_1, &line1))
 		{
 			printf("%s\n", line1);
-		}/*
-		get_next_line(fd, &line1);
-		get_next_line(fd, &line1);
-		printf("%s", line1);
-		*/
+		}*/
+		get_next_line(fd_1, &line1);
+		get_next_line(fd_1, &line1);
+		get_next_line(fd_1, &line1);
+		printf("%s\n",line1 );
+
 	}
-	else
-		printf("usage: please select one file");
+	if(close(fd_1) == -1)
+		printf("Error Close	()");
 	return (0);
 }

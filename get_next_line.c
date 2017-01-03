@@ -6,77 +6,53 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/23 15:38:37 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/01/02 19:27:51 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/01/03 17:47:21 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*cut_text(char *str)
+int		check(char *line)
 {
-	int	i;
-
-	i =	0;
-	while (str[i])
-	{
-		if (str[i] == '\n')
-			return (str + i + 1);
-		i++;
-	}
-	return (NULL);
-}
-
-char	*check_ret_cmp(char *str)
-{
-	int		i;
-	char	*dst;
-	t_pos	pos;
+	int i;
 
 	i = 0;
-	ft_memset(&pos, 0, sizeof(t_pos));
-	while (str[i])
-	{
-		if (str[i] == '\n')
-		{
-			dst = ft_strsub((const char*)str, pos.start, i - pos.start);
-			return (dst);
-		}
-		if (str[i + 1] == '\0' && str[i] != '\n')
-		{
-			dst = ft_strsub((const char*)str, pos.start, i - pos.start +1);
-			return (dst);
-		}
+	while (line[i] && line[i] != '\n')
 		i++;
-	}
-	return (NULL);
-}
+	if (line[i] == '\n')
+		return (i);
+	else
+		return (-1);
 
+}
 int		get_next_line(int fd, char **line)
 {
 	static char		*mem = "";
-	char			*map;
 	char			buf[BUFF_SIZE + 1];
 	int				ret;
 
-	map = "";
-	ret = 0;
-	if (fd < 0 || line == NULL || BUFF_SIZE <= 0)
+	if (fd <= 0 || line == NULL || BUFF_SIZE <= 0)
 		return (-1);
-	while ((ret = read(fd, buf, BUFF_SIZE)))
+	while ((ret = read(fd, buf, BUFF_SIZE)) && check(*line) == -1)
 	{
 		if (ret == -1)
 			return (-1);
 		buf[ret] = '\0';
 		mem = ft_strjoin(mem, buf);
+		*line = mem;
+		printf("%s\n",mem );
 	}
-	if (mem == NULL || mem[0] == '\0')
-		return (0);
-	map = ft_strdup(check_ret_cmp(mem));
-	mem = cut_text(mem);
-	if (map != NULL)
+	if (check(*line) != -1)
 	{
-		*line = ft_strdup(map);
+		*line = ft_strsub((const char*)*line, 0, check(*line) + 1);
+		mem = ft_strchr(mem, '\n');
 		return (1);
 	}
+	else if (check(*line) == -1 && ret == 0)
+	{
+		*line = ft_strsub((const char*)*line, 0, check(*line) + 1);
+		return (1);
+	}
+
 	return (0);
 }

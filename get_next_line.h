@@ -6,13 +6,13 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/23 15:45:05 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/01/02 23:31:27 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/01/03 15:01:09 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-# define BUFF_SIZE 9999
+# define BUFF_SIZE 1
 
 # include <sys/types.h>
 # include <sys/stat.h>
@@ -28,7 +28,7 @@ typedef struct	s_pos
 	int			flag;
 }				t_pos;
 
-char			*check_ret_cmp(char *str);
+char			*check_ret(char *str, int ret);
 char			*cut_text(char *str);
 int				get_next_line(const int fd, char **line);
 #endif
