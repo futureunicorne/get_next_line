@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/23 15:38:37 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/01/03 17:47:21 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/01/04 09:41:11 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,19 @@ int		get_next_line(int fd, char **line)
 
 	if (fd <= 0 || line == NULL || BUFF_SIZE <= 0)
 		return (-1);
+	*line = mem;
 	while ((ret = read(fd, buf, BUFF_SIZE)) && check(*line) == -1)
 	{
 		if (ret == -1)
 			return (-1);
 		buf[ret] = '\0';
-		mem = ft_strjoin(mem, buf);
-		*line = mem;
-		printf("%s\n",mem );
+		*line = ft_strjoin(*line, buf);
 	}
 	if (check(*line) != -1)
 	{
-		*line = ft_strsub((const char*)*line, 0, check(*line) + 1);
-		mem = ft_strchr(mem, '\n');
+		mem = ft_strchr(*line,'\n');
+		printf("%s", mem);
+		*line = ft_strsub((const char*)*line, 0, check(*line));
 		return (1);
 	}
 	else if (check(*line) == -1 && ret == 0)
@@ -53,6 +53,5 @@ int		get_next_line(int fd, char **line)
 		*line = ft_strsub((const char*)*line, 0, check(*line) + 1);
 		return (1);
 	}
-
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/27 09:20:27 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/01/03 17:46:08 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/01/04 08:58:10 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ int	main(int argc, char **argv)
 		}*/
 		get_next_line(fd_1, &line1);
 		get_next_line(fd_1, &line1);
-		get_next_line(fd_1, &line1);
-		printf("%s\n",line1 );
+		printf("%s",line1);
 
 	}
 	if(close(fd_1) == -1)
