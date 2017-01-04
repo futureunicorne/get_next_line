@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/06 15:24:11 by hel-hadi          #+#    #+#             */
-/*   Updated: 2016/12/22 17:16:22 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/01/04 15:27:41 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,8 @@ char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
 typedef struct		s_list
 {
-	int				*content;
+	char			*content;
+	int				repere;
 	size_t			content_size;
 	struct s_list	*prev;
 	struct s_list	*next;
@@ -97,7 +98,8 @@ void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void				ft_init_lst(t_last *list);
-int					ft_add_elm(t_last *list, void *content, size_t taille);
+int					ft_add_elm(t_last *list, void *content, size_t taille, int
+					rep);
 void				ft_print_lst(t_last *list);
 void				ft_free_lst(t_last *list);
 void				ft_del_elem(t_last *list, t_list *elem);

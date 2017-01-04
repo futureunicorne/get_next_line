@@ -6,13 +6,13 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/23 15:45:05 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/01/03 15:01:09 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/01/04 17:51:02 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-# define BUFF_SIZE 1
+# define BUFF_SIZE 18
 
 # include <sys/types.h>
 # include <sys/stat.h>

@@ -6,13 +6,13 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 16:14:12 by hel-hadi          #+#    #+#             */
-/*   Updated: 2016/12/22 17:17:14 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/01/04 15:08:46 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int				ft_add_elm(t_last *list, void *content, size_t content_size)
+int	ft_add_elm(t_last *list, void *content, size_t content_size, int rep)
 {
 	t_list *elem;
 
@@ -30,5 +30,6 @@ int				ft_add_elm(t_last *list, void *content, size_t content_size)
 		list->fin = elem;
 	list->debut = elem;
 	list->taille++;
+	elem->repere = rep;
 	return (0);
 }
