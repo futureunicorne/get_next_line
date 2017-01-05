@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/23 15:38:37 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/01/05 11:13:32 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/01/05 13:40:16 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,15 @@ t_list	*ft_check_fd(t_last *list, int fd)
 {
 	t_list	*tmp;
 
+	tmp = NULL;
 	if (list->taille == 0)
 	{
+		ft_init_lst(list);
 		ft_add_elm(list, (char*)"", 0, fd);
 		tmp = list->fin;
 		return (tmp);
 	}
+	free(tmp);
 	tmp = list->fin;
 	while (tmp != NULL)
 	{
@@ -29,8 +32,8 @@ t_list	*ft_check_fd(t_last *list, int fd)
 			return (tmp);
 		tmp = tmp->prev;
 	}
-	free (tmp);
 	ft_add_elm(list, (char*)"", 0, fd);
+	free(tmp);
 	tmp = list->fin;
 	while (fd != tmp->repere)
 		tmp = tmp->prev;

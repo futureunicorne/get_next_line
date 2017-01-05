@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 16:14:12 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/01/04 15:08:46 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/01/05 13:39:51 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	ft_add_elm(t_last *list, void *content, size_t content_size, int rep)
 		return (-1);
 	if ((elem->content = malloc(content_size)) == NULL)
 		return (-1);
+	free(elem->content);
 	elem->content_size = content_size;
 	elem->content = content;
 	elem->next = list->debut;
