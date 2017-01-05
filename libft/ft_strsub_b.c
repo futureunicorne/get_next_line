@@ -1,41 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strsub_b.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/13 11:55:33 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/01/05 11:02:07 by hel-hadi         ###   ########.fr       */
+/*   Created: 2016/11/12 17:03:09 by hel-hadi          #+#    #+#             */
+/*   Updated: 2017/01/05 11:00:18 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strsub_b(char const *s, unsigned int start, size_t len)
 {
-	int		i;
+	char	*s1;
+	size_t	i;
 	int		j;
-	char	*s3;
 
-	i = 0;
+	i = (size_t)start;
 	j = 0;
-	if (!s1 || !s2)
+	if ((s1 = (char*)malloc(sizeof(char) * (len + 1))) == NULL)
 		return (NULL);
-	if ((s3 = malloc(sizeof(s1) * ft_strlen(s1) + ft_strlen(s2) + 1)) == NULL)
-		return (NULL);
-	while (s1[i] != '\0')
+	if (s)
 	{
-		s3[i] = s1[i];
-		i++;
+		len = len + i;
+		while (i < len)
+		{
+			s1[j] = s[i];
+			i++;
+			j++;
+		}
+		s1[j] = '\0';
 	}
-	while (s2[j] != '\0')
-	{
-		s3[i] = s2[j];
-		i++;
-		j++;
-	}
-	s3[i] = '\0';
-	free((void*)s1);
-	return (s3);
+	free((void*)s);
+	return (s1);
 }

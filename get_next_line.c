@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/23 15:38:37 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/01/04 19:00:12 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/01/05 11:13:32 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ t_list	*ft_check_fd(t_last *list, int fd)
 			return (tmp);
 		tmp = tmp->prev;
 	}
+	free (tmp);
 	ft_add_elm(list, (char*)"", 0, fd);
 	tmp = list->fin;
 	while (fd != tmp->repere)
@@ -53,12 +54,11 @@ int		check(char *line)
 
 void	create_line(char **line, t_list *elem)
 {
-
 	if (check(*line) != -1)
 	{
 		elem->content = ft_strsub(*line, check(*line) + 1,
 		ft_strlen(*line) - check(*line) - 1);
-		*line = ft_strsub(*line, 0, check(*line));
+		*line = ft_strsub_b(*line, 0, check(*line));
 	}
 	else
 		elem->content = "";

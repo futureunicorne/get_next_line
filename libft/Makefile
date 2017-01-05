@@ -6,7 +6,7 @@
 #    By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/06 09:17:24 by hel-hadi          #+#    #+#              #
-#    Updated: 2016/12/22 19:44:34 by hel-hadi         ###   ########.fr        #
+#    Updated: 2017/01/05 10:59:17 by hel-hadi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,6 +80,7 @@ SRCS = 	ft_add_elem.c	\
 		ft_strsplit.c		\
 		ft_strstr.c			\
 		ft_strsub.c			\
+		ft_strsub_b.c		\
 		ft_strtrim.c		\
 		ft_tolower.c		\
 		ft_toupper.c		\
